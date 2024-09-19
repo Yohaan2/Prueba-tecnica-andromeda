@@ -1,0 +1,49 @@
+<div class="container-nav">
+  <app-layout></app-layout>
+  <button class="button-dashboard" (click)="goToDashboard()">Dashboard</button>
+</div>
+<div>
+
+  <form class="custom-form" [formGroup]="form" (ngSubmit)="saveData()" novalidate>
+    <h1>Contact Us</h1>
+
+    <div class="custom-input">
+      <input 
+        type="text"
+        formControlName="name"
+        placeholder="Name"
+        class="input"
+      />
+      <div *ngIf="form.get('name')?.errors && form.get('name')?.dirty">
+        <label class="error" *ngIf="form.get('name')?.hasError('required')">Field is required</label>
+      </div>
+    </div>
+
+    <div class="custom-input">
+      <input 
+        type="text"
+        name="lastName"
+        formControlName="lastName"
+        placeholder="Last Name"
+        class="input"
+      />
+       <div *ngIf="form.get('lastName')?.errors && form.get('lastName')?.dirty">
+         <label class="error" *ngIf="form.get('lastName')?.hasError('required')">Field is required</label>
+        </div>
+    </div>
+    <div class="custom-input">
+      <input 
+        type="text"
+        name="phone"
+        formControlName="phone"
+        placeholder="Phone"
+        class="input"
+      />
+      <div *ngIf="form.get('phone')?.errors && form.get('phone')?.dirty">
+         <label class="error" *ngIf="form.get('phone')?.hasError('required')">Field is required</label>
+      </div>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Send</button>
+    <h2 *ngIf='messageCreated$'>{{messageCreated$}}</h2>
+  </form>
+</div>

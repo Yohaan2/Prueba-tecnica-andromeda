@@ -1,0 +1,20 @@
+<app-layout></app-layout>
+<div class="container">
+  <div class="statistics" *ngIf="(salesData$ | async) as salesData">
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="salesData"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+    <button class="form-button" (click)="getForm()">Ir al formulario de registro</button>
+  </div>
+</div>
