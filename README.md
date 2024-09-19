@@ -33,8 +33,20 @@ Finalmente puedes cerrar sesion con el boton de sign out que te redirige al logi
 * mongoose
 * bycryptjs
 
-###Frontend
+### Frontend
 * Angular
 * ngx-charts
 
+# Vistas
 
+### Login
+![Login](./assets/login.png)
+
+### Register
+![Register](./assets/register.png)
+
+### Dashboard
+![Dashboard](./assets/dashboard.png)
+
+### Contact us
+![Contact](./assets/contact_us.png)

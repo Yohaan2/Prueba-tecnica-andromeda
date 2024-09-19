@@ -1,28 +1,32 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  email!: string;
-  password!: string;
-  username!: string;
+  form!: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router, public fb: FormBuilder){
+    this.form = this.fb.group({
+      username: ['', [ Validators.required]],
+      email: ['', [ Validators.required, Validators.email]],
+      password: ['', [ Validators.required, Validators.minLength(8)]]
+    })
+  }
 
   register() {
-    this.authService.register({email: this.email, password: this.password, username: this.username}).subscribe({
+    this.authService.register({email: this.form.value.email, password: this.form.value.password, username: this.form.value.username}).subscribe({
       next: (response) => {
         localStorage.setItem('token', response.accessToken);
         this.router.navigate(['/dashboard'])
-        console.log(response);
       },
       error: (error) => {
         console.log(error);

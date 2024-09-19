@@ -1,28 +1,47 @@
 <div class="register">
-  <form class="custom-form" method="post">
+  <form class="custom-form" [formGroup]="form" (ngSubmit)="register()" novalidate>
     <h1>Register</h1>
-    <input
-      type="text"
-      [(ngModel)]="username"
-      name="username"
-      placeholder="Username"
-      required="required"
-    />
-    <input
-    type="email"
-    [(ngModel)]="email"
-    name="email"
-    placeholder="Email"
-    required="required"
-    />
-    <input
-      type="password"
-      [(ngModel)]="password"
-      name="password"
-      placeholder="Password"
-      required="required"
-    />
-    <button type="submit" (click)="register()">Register</button>
+
+    <div class="custom-input">
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Username"
+        class="input"
+      />
+       <div *ngIf="form.get('username')?.errors && form.get('username')?.dirty">
+         <label class="error" *ngIf="form.get('username')?.hasError('required')">Field is required</label>
+       </div>
+      </div>
+    
+    <div class="custom-input">
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Email"
+        class="input"
+      />
+      <div *ngIf="form.get('email')?.errors && form.get('email')?.dirty">
+
+        <label class="error" *ngIf="form.get('email')?.hasError('required')">Field is required</label>
+        <label class="error" *ngIf="form.get('email')?.hasError('email')">Invalid email</label>
+      </div>
+    </div>
+
+      <div class="custom-input">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+          class="input"
+        />
+        <div *ngIf="form.get('password')?.errors && form.get('password')?.dirty">
+          <label class="error" *ngIf="form.get('password')?.hasError('required')">Field is required</label>
+          <label class="error" *ngIf="form.get('password')?.hasError('minlength')">Password must be at least 8 characters long</label>
+        </div>
+      </div>
+
+    <button type="submit" (click)="register()" [disabled]="form.invalid">Register</button>
     <a class="login-here" (click)="goToLogin()">Login here</a>
   </form>
 </div>
