@@ -34,3 +34,8 @@
   background-color: rgb(18, 114, 117);
   scale: 1.1;
 }
+
+.total-sales {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}

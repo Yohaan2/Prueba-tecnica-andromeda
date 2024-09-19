@@ -28,7 +28,7 @@ export class DashboardComponent {
   showXAxisLabel = true;
   xAxisLabel = 'Sales';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  yAxisLabel = 'Figures';
 
   colorScheme: Color = {
     domain: ['#f0a344', '#f04f44 ', '#2c6e91', '#eaeff2'],
