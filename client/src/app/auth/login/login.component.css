@@ -28,10 +28,11 @@
 .custom-form input:focus {
   border: 1px solid #7e7e7e;
 }
-.custom-form button {
+.custom-form .button-login {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   border: none;
+  margin-bottom: 2rem;
   font-size: 0.875rem;
   color: #ffffff;
   font-weight: bold;
@@ -48,4 +49,14 @@
 .custom-form button:hover {
   background-color: rgb(18, 114, 117);
   scale: 1.05;
+}
+
+.register-here {
+  text-align: center;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  font-weight: bold;
+}
+.register-here:hover {
+  text-decoration: underline;
 }

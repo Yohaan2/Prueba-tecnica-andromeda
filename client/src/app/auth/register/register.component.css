@@ -6,7 +6,7 @@
   padding: 2rem 3rem;
   margin: auto;
   border-radius: 2.5rem;
-  background-color: #ecf0f3;
+  background-color: #ecf0f3;;
   box-shadow: 8px 8px 10px #cbced1, -8px -8px 10px #7e7e7e;
   color: black;
   margin-top: 10rem;
@@ -22,11 +22,9 @@
       rgba(0, 0, 0, 0.1);
   border: 0 none;
   background: #ebf5fc;
+  outline: none;
 }
 
-.custom-form input:focus {
-  border: 1px solid #7e7e7e;
-}
 
 .custom-form button {
   text-transform: uppercase;
@@ -35,11 +33,31 @@
   font-size: 0.875rem;
   color: #ffffff;
   font-weight: bold;
-  background-color: #bcd8c1;
+  background-color:rgb(7, 128, 133);
   width: 100%;
   display: block;
   padding: 0.875rem 1rem;
+  margin-bottom: 2rem;
   border-radius: 1.5rem;
   box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-form input:focus {
+  border: 1px solid #7e7e7e;
+}
+.custom-form button:hover {
+  background-color: rgb(18, 114, 117);
+  scale: 1.05;
+}
+
+.login-here {
+  text-align: center;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  font-weight: bold;
+}
+.login-here:hover {
+  text-decoration: underline;
 }
